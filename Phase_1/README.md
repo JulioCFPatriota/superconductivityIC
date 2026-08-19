@@ -70,7 +70,7 @@ where every _i_ iteration had a small incremental step of $dt=0.01$.
 
 ### Runge-Kutta (solve_ivp)
 
-In this method, the **[Runge-Kutta program](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/oh_rk45.py)** used the function _"solve initial value problem"_, or _solve_ivp_ function, from **SciPy**'s library. With this approximation, the method needs three more steps: defining the function containing the EDO system that will be solved;
+In this method, the **[Runge-Kutta program](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/oh_rk45.py)** used the function _"solve initial value problem"_, or _solve_ivp_ for short, from **SciPy**'s library. With this approximation, the method needs three more steps: defining the function containing the EDO system that will be solved;
 ```
 #EDO system
 def f(_t, y):
