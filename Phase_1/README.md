@@ -3,7 +3,7 @@
 
 ### The assigned exercise consists in a program that will solve the harmonic oscillator using Python as script language.<br /> <br />1. Implementing Verlet method in Python<br />2. Implementing Runge-Kutta method through solve_ivp function, from SciPy library.
 
-### Solution
+### The analytic solution
 
 Starting from Hamilton's Principle,
 
@@ -56,4 +56,14 @@ $$ \omega_{0} = \sqrt{\frac{k}{m}}. $$
 
 ### Verlet Method
 
-For this method, the **[Verlet program]
+For this method, in the **[Verlet program](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/oh_verlet.py)**, a _for_ lace was created to implement the Verlet integration method
+```
+#Verlet
+for i in range(N-1):
+    x[i+1] = x[i] + v[i]*dt + 0.5*a[i]*(dt**2)
+    a[i+1] = -(k/m)*x[i+1]
+    v[i+1] = v[i] + 0.5*(a[i]+a[i+1])*dt
+```
+where every _i_ iteration had a small increment step of $dt=0.01$.
+
+[Verlet](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/verletMethod.png)
