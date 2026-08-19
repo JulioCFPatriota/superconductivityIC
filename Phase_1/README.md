@@ -64,6 +64,37 @@ for i in range(N-1):
     a[i+1] = -(k/m)*x[i+1]
     v[i+1] = v[i] + 0.5*(a[i]+a[i+1])*dt
 ```
-where every _i_ iteration had a small increment step of $dt=0.01$.
+where every _i_ iteration had a small incremental step of $dt=0.01$.
 
-[Verlet](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/verletMethod.png)
+![Verlet Preview](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/verletMethod.png)
+
+### Runge-Kutta (solve_ivp)
+
+In this method, the **[Runge-Kutta program](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/oh_rk45.py)** used the function _"solve initial value problem"_, or _solve_ivp_ function, from **SciPy**'s library. With this approximation, the method needs three more steps: defining the function containing the EDO system that will be solved;
+```
+#EDO system
+def f(_t, y):
+    x, v = y[0], y[1]
+    fx = v
+    fv = -(k/m) * x
+    return fx, fv
+```
+inserting the solutions inside _solve_ivp_;
+```
+#EDO solutions
+solution = solve_ivp(
+    fun=f,
+    t_span=(t_eval[0], t_eval[-1]),
+    y0=[x0, v0],
+    t_eval=t_eval
+)
+```
+and finally getting the data and placing it in their respective vector.
+```
+#solve_ivp Data
+t_sol = solution.t
+x_sol = solution.y[0]
+v_sol = solution.y[1]
+```
+
+![RK45 Preview](https://github.com/JulioCFPatriota/superconductivityIC/blob/main/Phase_1/solveivpRK45Method.png)
