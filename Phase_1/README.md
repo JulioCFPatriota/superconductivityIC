@@ -43,7 +43,7 @@ And then
 
 $$\frac{\partial L}{\partial x} = -kx, $$<br />
 $$\frac{\partial L}{\partial \dot{x}} = m\dot{x} \Rightarrow \frac{d}{dt}\frac{\partial L}{\partial \dot{x}} = m\ddot{x}$$<br />
-$$\therefore \frac{\partial L}{\partial x} - \frac{\partial L}{\partial \dot{x}} = - kx - m\ddot{x} = 0$$<br />
+$$\therefore \frac{\partial L}{\partial x} - \frac{d}{dt} \frac{\partial L}{\partial \dot{x}} = - kx - m\ddot{x} = 0$$<br />
 $$\Rightarrow \ddot{x}=-\frac{k}{m}x.$$
 
 Through EDO solving methods, in this particular case, using the ansatz $x(t)=e^{rt}$, is easy to obtain the analytic solution:
